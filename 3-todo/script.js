@@ -49,7 +49,18 @@ function updateCounter() {
 
 function render() {
   list.querySelectorAll("*").forEach((element) => element.remove());
-  const visible = getVisibleTasks();
+  let visible = getVisibleTasks();
+
+  const activeFilter = document.querySelector(".filter.active");
+  const typeFilter = activeFilter.dataset.filter;
+
+  if (typeFilter !== "all") {
+    visible = visible.filter((task) => {
+      if (typeFilter === "done") return task.done;
+      if (typeFilter === "active") return !task.done;
+    });
+  }
+
   for (let i = 0; i <= visible.length - 1; i++) {
     const task = visible[i];
     const li = document.createElement("li");
