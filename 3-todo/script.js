@@ -47,6 +47,7 @@ function updateCounter() {
 }
 
 function render() {
+  list.querySelectorAll("*").forEach((element) => element.remove());
   const visible = getVisibleTasks();
   for (let i = 0; i <= visible.length - 1; i++) {
     const task = visible[i];
