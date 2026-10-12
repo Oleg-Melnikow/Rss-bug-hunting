@@ -11,8 +11,8 @@ let currentFilter = "all";
 let nextId = 1;
 
 function addTask() {
-  const text = input.value;
-  if (!input.value) {
+  const text = input.value.trim();
+  if (!text) {
     errorEl.hidden = false;
     return;
   }
