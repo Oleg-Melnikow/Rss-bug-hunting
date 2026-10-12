@@ -50,11 +50,11 @@ function addToCart(id) {
       if (item.id === id) {
         return { ...item, qty: item.qty + 1 };
       }
+      return item;
     });
   } else {
     cart.push(newProduct);
   }
-
   renderCart();
 }
 
